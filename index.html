@@ -19,10 +19,12 @@
         </video>
 
         <button>Play/Pause</button>
+        <button class="mutear">Mute</button>
     </main>
     <script>
         const video = document.querySelector("video");
         const button = document.querySelector("button");
+        const btnmute = document.querySelector(".mutear")
 
         function MediaPlayer(config) {
             this.media = config.el;
@@ -36,14 +38,21 @@
         };
 
         const player = new MediaPlayer( { el: video });
-        var pausado = player.paused;
         button.onclick = () => {
             if(player.media.paused) {
                 player.play();
             } else {
                 player.pause();
-            }
-        }
+            };
+        };
+        btnmute.onclick = () => {
+            if(player.media.volume == 1) {
+                player.media.volume = 0;
+            } else {
+                player.media.volume = 1;
+            };
+
+        };
         
 
     </script>
