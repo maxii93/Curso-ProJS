@@ -1,3 +1,5 @@
+import '@babel/polyfill';
+
 const VERSION = 'v1';
 
 self.addEventListener('install', event => {
@@ -22,14 +24,14 @@ self.addEventListener('fetch', event => {
 async function precache() {
   const cache = await caches.open(VERSION);
   return cache.addAll([
-    '/',
+    /*'/',
     '/index.html',
     '/assets/index.js',
     '/assets/MediaPlayer.js',
     '/assets/plugins/AutoPlay.js',
     '/assets/plugins/AutoPause.js',
     '/style.css',
-    '/assets/bbb_60fps.mp4',
+    '/assets/bbb_60fps.mp4',*/
   ]);
 }
 

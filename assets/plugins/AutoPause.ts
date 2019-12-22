@@ -1,4 +1,9 @@
+import MediaPlayer from "../MediaPlayer";
+
 class AutoPause {
+    private threshold: number;
+    player: MediaPlayer;
+
     constructor () {
         this.HandleIntersection = this.HandleIntersection.bind(this);
         this.HandleVisibilityChange = this.HandleVisibilityChange.bind(this);
@@ -21,7 +26,7 @@ class AutoPause {
         isVisible ? this.player.play() : this.player.pause();
     }
 
-    HandleIntersection(entries) {
+    HandleIntersection(entries: IntersectionObserverEntry[]) {
         const entry = entries[0];
 
         entry.isIntersecting ? this.player.play() : this.player.pause();
